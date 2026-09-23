@@ -965,6 +965,7 @@ function toScene(n){
     initLetter();
   }
   if(n === 6) {
+    stopLetterMusic();
     initRevelation();
   }
   if(n === 7) {
@@ -994,6 +995,24 @@ function playLetterMusic(){
       console.log('Audio autoplay handled:', err);
     });
   }
+}
+
+function stopLetterMusic(){
+  const a = document.getElementById('bg-music');
+  if(!a || a.paused) return;
+  const startVol = a.volume;
+  let v = startVol;
+  const f = setInterval(()=>{
+    v -= startVol / 20;
+    if(v <= 0){
+      a.volume = 0;
+      a.pause();
+      a.currentTime = 0;
+      clearInterval(f);
+    } else {
+      a.volume = v;
+    }
+  }, 40);
 }
 
 function duckMusicVolume(targetVol){
@@ -1209,7 +1228,7 @@ function initLetter(){
     'l-p11':'Quizá se trata de encontrar a alguien con quien quieras seguir creciendo.',
     'l-p12':'Y yo, si pudiera elegir a alguien para caminar un poco más lejos, te elegiría a ti.',
     'l-p14':'Y ya que estoy escribiendo esto con el corazón abierto, quiero aprovechar para decirte algo más.',
-    'l-p15':'Perdóname por esas veces que estuve raro. Por esas veces en las que mi cabeza se fue sola a hacerse películas que no existían.',
+    'l-p15':'Perdóname por esas veces que estuve raro, distante, callado sin motivo aparente. Por esas veces en las que mi cabeza se fue sola a hacerse películas que no existían.',
     'l-p16':'Te pido perdón por eso. Pero quiero que sepas algo con total certeza: pase lo que pase, piense lo que piense, yo siempre te voy a amar. Aunque me enfade, aunque tú te enfades, aunque discutamos.',
     'l-p17':'Porque elegirnos no es algo que se hace una sola vez. Es algo que hay que hacer una y otra vez, cada día. Y está bien que a veces nos equivoquemos: para eso estamos, para mejorar juntos.',
     'l-p18':'No sabes cómo estoy sonriendo mientras escribo esto. Una sonrisa enorme, pensando en ti. Estoy enamorado de ti, Amira.',
@@ -1286,11 +1305,6 @@ function initRevelation(){
     revTimeouts.push(t);
   });
 
-  // Baja la música casi a silencio justo en "Ayer te vi mal" y la sube de nuevo tras la siguiente línea
-  const duckT1 = setTimeout(()=>duckMusicVolume(0.06), 6600);
-  const duckT2 = setTimeout(()=>duckMusicVolume(0.42), 9800);
-  revTimeouts.push(duckT1, duckT2);
-
   const btnT = setTimeout(() => {
     const btn = document.getElementById('rev-btn');
     if(btn) btn.classList.add('show');
@@ -1304,14 +1318,12 @@ function speedUpRevelation(){
     const el = document.getElementById('r-' + i);
     if(el) el.classList.add('on');
   }
-  duckMusicVolume(0.42);
   const btn = document.getElementById('rev-btn');
   if(btn) btn.classList.add('show');
 }
 
 /* ── S7 EL CIERRE (SILENCIO VISUAL) ── */
 function initFinal(){
-  duckMusicVolume(0.55);
   ['final-l1','final-l2','final-l3'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.classList.remove('show');
