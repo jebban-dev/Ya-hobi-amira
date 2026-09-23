@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Para Amira ✦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  width:100%;height:100%;height:100dvh;overflow:hidden;
+  background:#020106;color:#f0e8d8;font-family:'Cinzel',serif;
+  user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation
+}
+#vignette{
+  position:fixed;inset:0;z-index:99;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.75) 100%);
+  box-shadow:inset 0 0 100px rgba(0,0,0,.85)
+}
+
+/* ── SNAPPY CINEMATIC SCENE TRANSITIONS (0.6s) ── */
+.sc{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  opacity:0;pointer-events:none;transition:opacity .6s cubic-bezier(.25,1,.5,1),transform .6s ease;
+  transform:scale(.98);z-index:1
+}
+.sc.on{opacity:1;pointer-events:auto;transform:scale(1);z-index:10}
+.sc.off{opacity:0;transform:scale(1.02);z-index:5;transition:opacity .5s ease,transform .5s ease}
+
+/* ─────────────────────────────────────────────────────────────
+   SCENE 1: LUXURY 3D GPU-ACCELERATED DIAMOND-PINK HEART
+───────────────────────────────────────────────────────────── */
+#s1{cursor:pointer;background:radial-gradient(ellipse at 50% 45%,#18081c 0%,#08020d 50%,#010004 100%)}
+#c1{position:absolute;inset:0;z-index:1;pointer-events:none}
+
+.s1-wrap{
+  position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;
+  pointer-events:none
+}
+
+/* 3D Heart Container */
+.heart-3d-scene{
+  position:relative;width:240px;height:240px;perspective:800px;
+  display:flex;align-items:center;justify-content:center
+}
+.heart-3d-cube{
+  width:180px;height:180px;position:relative;transform-style:preserve-3d;
+  animation:spin3DHeart 4.5s linear infinite
+}
+@keyframes spin3DHeart{
+  0%{transform:rotateY(0deg) rotateX(10deg)}
+  100%{transform:rotateY(360deg) rotateX(10deg)}
+}
+.heart-glow-aura{
+  position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,105,180,.35) 0%,rgba(255,182,193,.1) 45%,transparent 70%);
+  animation:auraPulse 1.2s ease-in-out infinite alternate
+}
+@keyframes auraPulse{
+  0%{transform:scale(.9);opacity:.6}
+  100%{transform:scale(1.2);opacity:1}
+}
+
+.luxury-heart-svg{
+  width:100%;height:100%;
+  filter:drop-shadow(0 0 15px rgba(255,90,160,.9)) drop-shadow(0 0 35px rgba(255,40,120,.6));
+  animation:heartBeatFast 1.2s ease-in-out infinite
+}
+@keyframes heartBeatFast{
+  0%,100%{transform:scale(1)}
+  14%{transform:scale(1.15)}
+  28%{transform:scale(1.03)}
+  42%{transform:scale(1.12)}
+}
+
+/* Orbital Rings in Silver & Pink */
+.s1-ring{
+  position:absolute;inset:-20px;border-radius:50%;
+  border:1.2px solid rgba(255,182,193,.3);
+  animation:orbitRotate1 7s linear infinite
+}
+.s1-ring.two{
+  inset:-38px;border-color:rgba(215,225,238,.25);
+  animation:orbitRotate2 9s linear infinite
+}
+@keyframes orbitRotate1{from{transform:rotateX(68deg) rotate(0deg)}to{transform:rotateX(68deg) rotate(360deg)}}
+@keyframes orbitRotate2{from{transform:rotateY(68deg) rotate(0deg)}to{transform:rotateY(68deg) rotate(360deg)}}
+
+.s1-quote{
+  margin-top:28px;text-align:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(15px,4vw,21px);letter-spacing:5px;
+  color:rgba(255,225,238,.9);text-shadow:0 0 25px rgba(255,140,190,.5)
+}
+.s1-tap{
+  margin-top:12px;font-size:10px;letter-spacing:6px;text-transform:uppercase;
+  color:rgba(215,220,228,.7);animation:breathe 1.8s ease-in-out infinite
+}
+@keyframes breathe{0%,100%{opacity:.35}50%{opacity:.95}}
+
+/* ─────────────────────────────────────────────────────────────
+   SCENE 2: GORGEOUS REALISTIC PINK TULIP (FAST 0.8s BLOOM)
+───────────────────────────────────────────────────────────── */
+#s2{background:radial-gradient(ellipse at 50% 50%,#180816 0%,#0a030c 55%,#020106 100%)}
+#c2{position:absolute;inset:0;pointer-events:none}
+
+.tulip-scene-wrap{
+  position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;
+  width:100%;max-width:380px
+}
+.tulip-container{
+  position:relative;width:240px;height:280px;
+  display:flex;align-items:center;justify-content:center;
+  animation:tulipFloat 4s ease-in-out infinite
+}
+@keyframes tulipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+.tulip-stem{
+  position:absolute;bottom:10px;width:7px;height:140px;
+  background:linear-gradient(to right,#3a6b35,#5c9c54,#2e572a);
+  border-radius:4px;z-index:1;box-shadow:0 0 10px rgba(60,140,60,.3)
+}
+.tulip-leaf-left{
+  position:absolute;bottom:25px;left:50px;width:40px;height:95px;
+  background:linear-gradient(135deg,#5c9c54 0%,#2e572a 100%);
+  border-radius:100% 0 100% 0;transform:rotate(-38deg);z-index:1;
+  opacity:0;transition:opacity .6s ease,transform .7s cubic-bezier(.2,1,.3,1);transition-delay:.1s
+}
+.tulip-leaf-right{
+  position:absolute;bottom:40px;right:48px;width:38px;height:105px;
+  background:linear-gradient(225deg,#6cb063 0%,#346130 100%);
+  border-radius:0 100% 0 100%;transform:rotate(36deg);z-index:1;
+  opacity:0;transition:opacity .6s ease,transform .7s cubic-bezier(.2,1,.3,1);transition-delay:.2s
+}
+.tulip-container.bloom .tulip-leaf-left{opacity:.9;transform:rotate(-28deg)}
+.tulip-container.bloom .tulip-leaf-right{opacity:.9;transform:rotate(26deg)}
+
+.tulip-bud{
+  position:absolute;top:30px;width:130px;height:160px;z-index:5;
+  display:flex;align-items:center;justify-content:center
+}
+.tulip-petal{
+  position:absolute;transform-origin:50% 90%;opacity:0;
+  transition:all .8s cubic-bezier(.16,1,.3,1)
+}
+.tp-back{
+  width:72px;height:135px;top:0;
+  background:linear-gradient(to top,#c2185b 0%,#f06292 45%,#fce4ec 100%);
+  border-radius:50% 50% 30% 30% / 60% 60% 40% 40%;
+  box-shadow:inset 0 -8px 20px rgba(136,14,79,.3),0 0 25px rgba(244,143,177,.4);
+  transform:scaleY(0);z-index:2
+}
+.tp-left{
+  width:68px;height:130px;left:15px;top:8px;
+  background:linear-gradient(135deg,#ad1457 0%,#f48fb1 40%,#fff0f5 100%);
+  border-radius:60% 40% 30% 50% / 65% 55% 45% 35%;
+  transform:rotate(-15deg) scaleY(0);z-index:4;
+  box-shadow:inset -3px 0 12px rgba(173,20,87,.3),0 4px 20px rgba(233,30,99,.3)
+}
+.tp-right{
+  width:68px;height:130px;right:15px;top:8px;
+  background:linear-gradient(225deg,#ad1457 0%,#f48fb1 40%,#fff0f5 100%);
+  border-radius:40% 60% 50% 30% / 55% 65% 35% 45%;
+  transform:rotate(15deg) scaleY(0);z-index:4;
+  box-shadow:inset 3px 0 12px rgba(173,20,87,.3),0 4px 20px rgba(233,30,99,.3)
+}
+.tp-front{
+  width:64px;height:125px;top:15px;
+  background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#f8bbd0 35%,#e91e63 100%);
+  border-radius:50% 50% 40% 40% / 65% 65% 35% 35%;
+  transform:scaleY(0);z-index:6;
+  box-shadow:inset 0 0 16px rgba(255,255,255,.5),0 8px 30px rgba(233,30,99,.4)
+}
+.tulip-container.bloom .tp-back{transform:scaleY(1);opacity:.95;transition-delay:.1s}
+.tulip-container.bloom .tp-left{transform:rotate(-28deg) translateY(-2px) scaleY(1);opacity:.98;transition-delay:.25s}
+.tulip-container.bloom .tp-right{transform:rotate(28deg) translateY(-2px) scaleY(1);opacity:.98;transition-delay:.25s}
+.tulip-container.bloom .tp-front{transform:scaleY(1) translateY(4px);opacity:1;transition-delay:.45s}
+
+.tulip-glow-core{
+  position:absolute;top:55px;width:90px;height:90px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,182,193,.45) 0%,rgba(255,105,180,.15) 50%,transparent 70%);
+  opacity:0;transition:opacity .8s ease;transition-delay:.5s;pointer-events:none;z-index:3
+}
+.tulip-container.bloom .tulip-glow-core{opacity:1}
+
+.s2-title{
+  margin-top:20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(32px,8.5vw,52px);letter-spacing:10px;
+  color:rgba(255,210,225,0);text-shadow:0 0 40px rgba(255,140,180,0);
+  transition:color .8s ease,text-shadow .8s ease;transition-delay:.3s
+}
+.s2-title.show{color:#fce4ec;text-shadow:0 0 50px rgba(255,105,180,.6),0 0 90px rgba(255,140,180,.3)}
+.s2-sub{
+  margin-top:6px;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(14px,3.8vw,19px);letter-spacing:4px;
+  color:rgba(215,220,228,0);transition:color .8s ease;transition-delay:.5s;text-align:center
+}
+.s2-sub.show{color:rgba(225,230,238,.85)}
+.s2-btn{
+  margin-top:24px;padding:12px 34px;border-radius:50px;
+  border:1px solid rgba(255,182,193,.4);background:rgba(255,182,193,.08);
+  color:rgba(255,210,225,.9);font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;cursor:pointer;
+  opacity:0;transition:opacity .6s ease,background .3s,box-shadow .3s;transition-delay:.7s;
+  backdrop-filter:blur(10px)
+}
+.s2-btn.show{opacity:1}
+.s2-btn:hover{background:rgba(255,182,193,.25);box-shadow:0 0 25px rgba(255,105,180,.4)}
+
+/* ─────────────────────────────────────────────────────────────
+   SCENE 3: AMIRA'S PORTRAIT (FAST & ELEGANT)
+───────────────────────────────────────────────────────────── */
+#s3{background:radial-gradient(ellipse at 50% 45%,#140718 0%,#07020a 55%,#010003 100%)}
+#c3{position:absolute;inset:0;z-index:1;pointer-events:none}
+
+.portrait-cinema-wrap{
+  position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;
+  opacity:0;transform:scale(.97) translateY(8px);
+  transition:opacity .8s ease,transform .8s cubic-bezier(.2,1,.3,1)
+}
+.portrait-cinema-wrap.on{opacity:1;transform:scale(1) translateY(0)}
+
+.portrait-glow-halo{
+  position:absolute;top:20%;width:min(320px,80vw);height:min(380px,90vw);border-radius:50%;
+  background:radial-gradient(circle,rgba(255,140,180,.18) 0%,rgba(210,215,225,.1) 40%,transparent 70%);
+  pointer-events:none;z-index:1
+}
+.portrait-frame{
+  position:relative;z-index:5;
+  width:min(240px,58vw);
+  padding:2px;border-radius:4px;
+  background:linear-gradient(145deg,rgba(255,182,193,.85),rgba(225,230,240,.7),rgba(255,105,180,.75));
+  box-shadow:0 0 0 6px rgba(255,182,193,.08),0 35px 90px rgba(0,0,0,.95),0 0 60px rgba(255,105,180,.25)
+}
+.portrait-frame::before{
+  content:'';position:absolute;inset:6px;border:1px solid rgba(255,225,235,.35);
+  pointer-events:none;z-index:6;border-radius:2px
+}
+.portrait-img-box{
+  width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:2px;position:relative
+}
+.portrait-img{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center top;
+  filter:sepia(.15) contrast(1.05) brightness(.93)
+}
+
+.s3-pretext{
+  margin-top:20px;text-align:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(15px,4vw,20px);letter-spacing:5px;
+  color:rgba(215,220,230,0);transition:color .7s ease;transition-delay:.2s
+}
+.s3-pretext.on{color:rgba(225,230,240,.9)}
+.s3-name{
+  margin-top:4px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(34px,9vw,54px);letter-spacing:10px;
+  color:rgba(255,230,240,0);transition:color .8s ease,text-shadow .8s ease;transition-delay:.4s
+}
+.s3-name.on{color:#fff0f5;text-shadow:0 0 50px rgba(255,105,180,.5),0 0 90px rgba(255,182,193,.3)}
+.s3-posttext{
+  margin-top:4px;text-align:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(14px,3.8vw,18px);letter-spacing:4px;
+  color:rgba(255,182,193,0);transition:color .7s ease;transition-delay:.6s
+}
+.s3-posttext.on{color:rgba(255,190,210,.9)}
+
+.s3-btn{
+  margin-top:22px;padding:12px 34px;border-radius:50px;
+  border:1px solid rgba(255,182,193,.35);background:rgba(255,182,193,.06);
+  color:rgba(255,220,235,.85);font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;cursor:pointer;
+  opacity:0;transition:opacity .5s ease,background .3s;backdrop-filter:blur(10px)
+}
+.s3-btn.show{opacity:1}
+.s3-btn:hover{background:rgba(255,182,193,.2)}
+
+/* ─────────────────────────────────────────────────────────────
+   SCENE 4: POLAROIDS (SNAPPY FLY-IN)
+───────────────────────────────────────────────────────────── */
+#s4{background:radial-gradient(ellipse at 50% 45%,#150614 0%,#07020a 55%,#010003 100%)}
+
+.polaroids-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(12px,4vw,32px);position:relative;z-index:10
+}
+.pol{
+  display:flex;flex-direction:column;align-items:center;
+  opacity:0;transition:opacity .7s ease, transform .8s cubic-bezier(.22,1,.36,1)
+}
+.pol.left{transform:translateX(-50px) rotate(-4deg)}
+.pol.right{transform:translateX(50px) rotate(4deg)}
+.pol.on{opacity:1}
+.pol.left.on{transform:translateX(0) rotate(-3deg)}
+.pol.right.on{transform:translateX(0) rotate(3deg)}
+
+.pol-frame{
+  background:#fffdfa;
+  padding:8px 8px 18px 8px;
+  border-radius:2px;
+  box-shadow:0 24px 70px rgba(0,0,0,.9),0 0 0 1px rgba(255,182,193,.2),0 4px 18px rgba(0,0,0,.6);
+  position:relative
+}
+.pol-img{
+  display:block;width:clamp(115px,30vw,165px);aspect-ratio:3/4;
+  object-fit:cover;object-position:center top;
+  filter:sepia(.2) contrast(1.05) brightness(.92);
+  border-radius:1px
+}
+
+/* 3D Heart between polaroids */
+.pol-heart-box{
+  position:relative;z-index:15;
+  display:flex;align-items:center;justify-content:center;
+  width:clamp(46px,12vw,66px);height:clamp(46px,12vw,66px);
+  opacity:0;transform:scale(0);
+  transition:opacity .6s ease,transform .7s cubic-bezier(.18,.89,.32,1.28)
+}
+.pol-heart-box.on{opacity:1;transform:scale(1)}
+.pol-pink-heart{
+  width:100%;height:100%;
+  filter:drop-shadow(0 0 16px rgba(255,90,160,1)) drop-shadow(0 0 35px rgba(255,40,120,.75));
+  animation:pinkHeartBeat 1.2s ease-in-out infinite
+}
+@keyframes pinkHeartBeat{
+  0%,100%{transform:scale(1)}
+  15%{transform:scale(1.22)}
+  30%{transform:scale(1.04)}
+  45%{transform:scale(1.18)}
+}
+
+.pol-caption{
+  margin-top:clamp(20px,4vh,32px);
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(18px,4.8vw,26px);letter-spacing:4px;text-align:center;
+  color:rgba(255,210,225,0);transition:color .7s ease;transition-delay:.3s
+}
+.pol-caption.on{color:rgba(255,225,235,.9);text-shadow:0 0 30px rgba(255,105,180,.4)}
+
+.pol-sub{
+  margin-top:6px;font-size:10px;letter-spacing:5px;text-transform:uppercase;
+  color:rgba(201,160,74,0);transition:color .6s ease;transition-delay:.5s
+}
+.pol-sub.on{color:rgba(201,160,74,.6)}
+
+.s4-btn{
+  margin-top:clamp(22px,4.5vh,34px);padding:13px 36px;border-radius:50px;
+  border:1px solid rgba(255,182,193,.4);background:rgba(255,105,180,.12);
+  color:#fff0f5;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:4px;
+  text-transform:uppercase;cursor:pointer;
+  opacity:0;transition:opacity .6s ease,background .3s,box-shadow .3s,transform .3s;transition-delay:.7s;
+  backdrop-filter:blur(10px);box-shadow:0 0 25px rgba(255,105,180,.2)
+}
+.s4-btn.show{opacity:1}
+.s4-btn:hover{background:rgba(255,105,180,.3);box-shadow:0 0 40px rgba(255,105,180,.5);transform:translateY(-2px)}
+
+/* ─────────────────────────────────────────────────────────────
+   SCENE 5: THE LETTER (PERFECT AUDIO SYNC)
+───────────────────────────────────────────────────────────── */
+#s5{background:radial-gradient(ellipse at 50% 0%,#140718 0%,#040108 60%);padding:20px}
+.mote{
+  position:absolute;border-radius:50%;background:rgba(255,182,193,.7);
+  box-shadow:0 0 8px 2px rgba(255,105,180,.4);pointer-events:none;
+  animation:moteFloat linear infinite
+}
+@keyframes moteFloat{
+  0%{transform:translateY(0);opacity:0}
+  10%{opacity:.85}90%{opacity:.3}
+  100%{transform:translateY(-100vh);opacity:0}
+}
+.letter-outer{width:min(580px,96vw);max-height:90dvh;overflow-y:auto;position:relative;z-index:10}
+.letter-outer::-webkit-scrollbar{width:3px}
+.letter-outer::-webkit-scrollbar-thumb{background:rgba(255,182,193,.25);border-radius:2px}
+.letter-card{
+  background:linear-gradient(150deg,rgba(20,10,18,.97) 0%,rgba(10,5,15,.98) 100%);
+  border:1px solid rgba(255,182,193,.25);border-radius:4px;
+  padding:clamp(34px,7vw,54px) clamp(24px,6vw,44px);
+  box-shadow:0 0 0 1px rgba(255,182,193,.06),0 40px 100px rgba(0,0,0,.9),0 0 70px rgba(255,105,180,.1),inset 0 1px 0 rgba(255,255,255,.08);
+  position:relative
+}
+.letter-card::before,.letter-card::after{content:'❖';position:absolute;font-size:14px;color:rgba(255,182,193,.35);font-family:'Cinzel',serif}
+.letter-card::before{top:16px;left:20px}
+.letter-card::after{bottom:16px;right:20px}
+.l-eyebrow{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:rgba(201,160,74,.6);margin-bottom:20px;text-align:center}
+.l-name{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(42px,10vw,64px);color:#fce4ec;text-align:center;line-height:1;margin-bottom:8px;
+  text-shadow:0 0 60px rgba(255,105,180,.4)
+}
+.l-rule{width:100%;height:1px;margin:18px 0;background:linear-gradient(to right,transparent,rgba(255,182,193,.3),transparent)}
+.l-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(16px,4vw,20px);line-height:1.95;color:rgba(255,235,240,.88)}
+.l-para{margin-top:20px}
+.l-sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(18px,4.5vw,24px);color:rgba(255,182,193,.85);text-align:center;margin-top:12px}
+.l-arabic{font-family:'Amiri',serif;direction:rtl;font-size:clamp(17px,4.2vw,24px);color:rgba(255,182,193,.8);text-align:center;margin-top:6px;letter-spacing:1px}
+.l-translate{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,182,193,.4);text-align:center;margin-top:5px}
+.wax{
+  width:68px;height:68px;border-radius:50%;margin:28px auto 0;
+  background:radial-gradient(circle at 42% 32%,#ad1457 0%,#880e4f 55%,#4a072b 100%);
+  display:flex;align-items:center;justify-content:center;font-size:22px;color:rgba(255,210,225,.8);
+  font-family:'Cinzel',serif;box-shadow:0 10px 30px rgba(136,14,79,.6),0 0 0 3px rgba(255,182,193,.2),inset 0 2px 0 rgba(255,255,255,.2);
+  animation:waxGlow 4s ease-in-out infinite
+}
+@keyframes waxGlow{
+  0%,100%{box-shadow:0 10px 30px rgba(136,14,79,.6),0 0 0 3px rgba(255,182,193,.2)}
+  50%{box-shadow:0 10px 50px rgba(233,30,99,.8),0 0 0 3px rgba(255,182,193,.4),0 0 40px rgba(255,105,180,.3)}
+}
+.word{display:inline;opacity:0;transition:opacity .4s ease,filter .4s ease;filter:blur(3px)}
+.word.vis{opacity:1;filter:blur(0)}
+</style>
+</head>
+<body>
+<div id="vignette"></div>
+
+<!-- AUDIO ELEMENT (Ayed - Awedak) -->
+<audio id="bg-music" src="musica.mp3" preload="auto" loop></audio>
+
+<!-- S1 — CORAZÓN 3D DE LUJO (GPU ACCELERATED 60FPS) -->
+<div class="sc on" id="s1" onclick="handleFirstTap()">
+  <canvas id="c1"></canvas>
+  <div class="s1-wrap">
+    <div class="heart-3d-scene">
+      <div class="heart-glow-aura"></div>
+      <div class="s1-ring"></div>
+      <div class="s1-ring two"></div>
+      <div class="heart-3d-cube">
+        <svg class="luxury-heart-svg" viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="luxHeartGrad" cx="35%" cy="25%" r="70%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="25%" stop-color="#ff80bf"/>
+              <stop offset="65%" stop-color="#e91e63"/>
+              <stop offset="100%" stop-color="#880e4f"/>
+            </radialGradient>
+            <linearGradient id="luxShine" x1="0%" y1="0%" x2="50%" y2="80%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.75)"/>
+              <stop offset="50%" stop-color="rgba(255,255,255,0)"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C35 5 43 9 50 17 C57 9 65 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="url(#luxHeartGrad)"/>
+          <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C35 5 43 9 50 17 C57 9 65 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="url(#luxShine)"/>
+        </svg>
+      </div>
+    </div>
+    <p class="s1-quote">Hay historias que están escritas antes de empezar...</p>
+    <p class="s1-tap">toca la pantalla para comenzar ✦</p>
+  </div>
+</div>
+
+<!-- S2 — TULIPÁN ROSA QUE FLORECE (RÁPIDO Y FLUIDO) -->
+<div class="sc" id="s2">
+  <canvas id="c2"></canvas>
+  <div class="tulip-scene-wrap">
+    <div class="tulip-container" id="tulip-box">
+      <div class="tulip-stem"></div>
+      <div class="tulip-leaf-left"></div>
+      <div class="tulip-leaf-right"></div>
+      <div class="tulip-glow-core"></div>
+      <div class="tulip-bud">
+        <div class="tulip-petal tp-back"></div>
+        <div class="tulip-petal tp-left"></div>
+        <div class="tulip-petal tp-right"></div>
+        <div class="tulip-petal tp-front"></div>
+      </div>
+    </div>
+    <p class="s2-title" id="s2-title">Amira</p>
+    <p class="s2-sub" id="s2-sub">como los tulipanes, floreces donde hay amor</p>
+    <button class="s2-btn" id="s2-btn" onclick="event.stopPropagation();toScene(3)">Continuar &nbsp;✦</button>
+  </div>
+</div>
+
+<!-- S3 — RETRATO CINEMATOGRÁFICO ELEVADO -->
+<div class="sc" id="s3">
+  <canvas id="c3"></canvas>
+  <div class="portrait-cinema-wrap" id="portrait-wrap">
+    <div class="portrait-glow-halo"></div>
+    <div class="portrait-frame">
+      <div class="portrait-img-box">
+        <img class="portrait-img" src="ella.jpeg" alt="Amira">
+      </div>
+    </div>
+    <p class="s3-pretext" id="s3-pretext">mi casualidad más bonita...</p>
+    <h2 class="s3-name" id="s3-name">Amira</h2>
+    <p class="s3-posttext" id="s3-posttext">eres tú, siempre has sido tú</p>
+    <button class="s3-btn" id="s3-btn" onclick="toScene(4)">Continuar &nbsp;✦</button>
+  </div>
+</div>
+
+<!-- S4 — POLAROIDS (LOS DOS JUNTOS) -->
+<div class="sc" id="s4">
+  <div class="polaroids-row">
+    <div class="pol left" id="pol-l">
+      <div class="pol-frame">
+        <img class="pol-img" src="ella.jpeg" alt="Amira">
+      </div>
+    </div>
+    <!-- Luxury 3D Styled Pink Heart -->
+    <div class="pol-heart-box" id="pol-heart-box">
+      <svg class="pol-pink-heart" viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="pinkH3d" cx="35%" cy="25%" r="70%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="25%" stop-color="#ff80bf"/>
+            <stop offset="65%" stop-color="#e91e63"/>
+            <stop offset="100%" stop-color="#880e4f"/>
+          </radialGradient>
+          <linearGradient id="heartShine" x1="0%" y1="0%" x2="50%" y2="80%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.7)"/>
+            <stop offset="50%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C35 5 43 9 50 17 C57 9 65 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="url(#pinkH3d)"/>
+        <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C35 5 43 9 50 17 C57 9 65 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="url(#heartShine)"/>
+      </svg>
+    </div>
+    <div class="pol right" id="pol-r">
+      <div class="pol-frame">
+        <img class="pol-img" src="el.jpeg" alt="él">
+      </div>
+    </div>
+  </div>
+  <p class="pol-caption" id="pol-caption">y fue así como todo encajó</p>
+  <p class="pol-sub" id="pol-sub">nosotros &nbsp;🤍</p>
+  <button class="s4-btn" id="s4-btn" onclick="toScene(5)">Algo que nunca te dije &nbsp;✦</button>
+</div>
+
+<!-- S5 — CARTA (Música en segundo plano automático) -->
+<div class="sc" id="s5">
+  <div class="letter-outer">
+    <div class="letter-card">
+      <p class="l-eyebrow">para ti, solo para ti</p>
+      <h1 class="l-name">Amira</h1>
+      <div class="l-rule"></div>
+      <div class="l-body">
+        <p class="l-para" id="l-p1"></p>
+        <p class="l-para" id="l-p2"></p>
+        <p class="l-para" id="l-p3"></p>
+        <p class="l-para" id="l-p4"></p>
+        <p class="l-para" id="l-p5"></p>
+        <p class="l-para" id="l-p6"></p>
+      </div>
+      <div class="l-rule"></div>
+      <p class="l-body" id="l-p7" style="text-align:center;font-size:clamp(20px,5vw,26px);margin-top:0"></p>
+      <div class="l-rule"></div>
+      <p class="l-sign" id="l-sign"></p>
+      <p class="l-arabic">«أنتِ عُمري كلُّه»</p>
+      <p class="l-translate">«Tú eres toda mi vida»</p>
+      <div class="wax">❖</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let curScene = 1;
+
+function handleFirstTap(){
+  const a = document.getElementById('bg-music');
+  if(a) { a.load(); }
+  toScene(2);
+}
+
+function toScene(n){
+  const prev=document.getElementById('s'+curScene);
+  const next=document.getElementById('s'+n);
+  prev.classList.remove('on'); prev.classList.add('off');
+  setTimeout(()=>prev.classList.remove('off'),600);
+  next.classList.add('on'); curScene=n;
+  if(n===2) initTulip();
+  if(n===3) initPortrait();
+  if(n===4) initPolaroids();
+  if(n===5) {
+    playLetterMusic();
+    initLetter();
+  }
+}
+
+/* ── SEAMLESS AUDIO ── */
+function playLetterMusic(){
+  const a = document.getElementById('bg-music');
+  if(!a) return;
+  a.currentTime = 0;
+  a.volume = 0;
+  const playPromise = a.play();
+  if(playPromise !== undefined){
+    playPromise.then(()=>{
+      let v = 0;
+      const f = setInterval(()=>{
+        if(v < 0.85){
+          v += 0.1;
+          a.volume = Math.min(v, 0.85);
+        } else {
+          clearInterval(f);
+        }
+      }, 50);
+    }).catch(err => {
+      console.log('Audio autoplay handled:', err);
+    });
+  }
+}
+
+/* ── S1 FLOATING LUXURY HEARTS CANVAS ── */
+(function(){
+  const canvas = document.getElementById('c1'), ctx = canvas.getContext('2d');
+  let W, H;
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const bgHearts = [];
+  for (let i = 0; i < 28; i++) {
+    bgHearts.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vy: -0.3 - Math.random() * 0.5,
+      size: 5 + Math.random() * 8,
+      alpha: 0.15 + Math.random() * 0.4,
+      col: Math.random() > 0.45 ? 'rgba(255,182,193,' : 'rgba(220,225,235,'
+    });
+  }
+
+  function drawMiniHeart(ctx, x, y, size, fillStyle) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.beginPath();
+    const h = size * 0.3;
+    ctx.moveTo(0, h);
+    ctx.bezierCurveTo(0, 0, -size/2, 0, -size/2, h);
+    ctx.bezierCurveTo(-size/2, (size+h)/2, 0, size, 0, size*1.15);
+    ctx.bezierCurveTo(0, size, size/2, (size+h)/2, size/2, h);
+    ctx.bezierCurveTo(size/2, 0, 0, 0, 0, h);
+    ctx.closePath();
+    ctx.fillStyle = fillStyle;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function render() {
+    if (curScene !== 1) {
+      requestAnimationFrame(render);
+      return;
+    }
+    ctx.clearRect(0, 0, W, H);
+    bgHearts.forEach(h => {
+      h.y += h.vy;
+      if (h.y < -20) { h.y = H + 20; h.x = Math.random() * W; }
+      drawMiniHeart(ctx, h.x, h.y, h.size, h.col + h.alpha + ')');
+    });
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+})();
+
+/* ── S2 TULIP BLOOM (SNAPPY) ── */
+function initTulip(){
+  setTimeout(()=>document.getElementById('tulip-box').classList.add('bloom'),150);
+  setTimeout(()=>{
+    document.getElementById('s2-title').classList.add('show');
+    document.getElementById('s2-sub').classList.add('show');
+    document.getElementById('s2-btn').classList.add('show');
+  },650);
+
+  const c=document.getElementById('c2'),ctx=c.getContext('2d');
+  let W,H;
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  window.addEventListener('resize',resize);resize();
+  const motes=[];
+  for(let i=0;i<30;i++){
+    const a=Math.random()*Math.PI*2,r=40+Math.random()*150;
+    motes.push({
+      x:W/2+Math.cos(a)*r,y:H/2+Math.sin(a)*r,
+      vx:(Math.random()-.5)*.35,vy:-.3-Math.random()*.6,
+      r:.8+Math.random()*1.8,alpha:0,maxA:.25+Math.random()*.5,
+      life:0,maxLife:100+Math.random()*100
+    });
+  }
+  function loop(){
+    if(curScene!==2){return;}
+    ctx.clearRect(0,0,W,H);
+    motes.forEach(m=>{
+      m.x+=m.vx;m.y+=m.vy;m.life++;
+      if(m.life<20) m.alpha=m.life/20*m.maxA;
+      else if(m.life>m.maxLife-20) m.alpha=(m.maxLife-m.life)/20*m.maxA;
+      else m.alpha=m.maxA;
+      if(m.life>m.maxLife){
+        const a=Math.random()*Math.PI*2,r=40+Math.random()*150;
+        Object.assign(m,{x:W/2+Math.cos(a)*r,y:H/2+Math.sin(a)*r,life:0,alpha:0});
+      }
+      ctx.beginPath();ctx.arc(m.x,m.y,m.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,182,193,${m.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+}
+
+/* ── S3 PORTRAIT (SNAPPY) ── */
+function initPortrait(){
+  const c=document.getElementById('c3'),ctx=c.getContext('2d');
+  let W,H;function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  window.addEventListener('resize',resize);resize();
+  const dust=[];
+  for(let i=0;i<25;i++) dust.push({
+    x:Math.random()*W,y:H+Math.random()*H,
+    vy:-.2-Math.random()*.4,vx:(Math.random()-.5)*.2,
+    r:.8+Math.random()*1.6,alpha:0,maxA:.15+Math.random()*.25,
+    life:0,maxLife:140+Math.random()*140
+  });
+  function loop(){
+    if(curScene!==3){return;}
+    ctx.clearRect(0,0,W,H);
+    dust.forEach(d=>{
+      d.x+=d.vx;d.y+=d.vy;d.life++;
+      if(d.life<40) d.alpha=d.life/40*d.maxA;
+      else if(d.life>d.maxLife-40) d.alpha=(d.maxLife-d.life)/40*d.maxA;
+      else d.alpha=d.maxA;
+      if(d.life>d.maxLife||d.y<-10) Object.assign(d,{x:Math.random()*W,y:H+10,life:0,alpha:0});
+      ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,200,220,${d.alpha})`;ctx.fill();
+    });
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  setTimeout(()=>document.getElementById('portrait-wrap').classList.add('on'),150);
+  setTimeout(()=>document.getElementById('s3-pretext').classList.add('on'),350);
+  setTimeout(()=>document.getElementById('s3-name').classList.add('on'),600);
+  setTimeout(()=>document.getElementById('s3-posttext').classList.add('on'),850);
+  setTimeout(()=>document.getElementById('s3-btn').classList.add('show'),1100);
+}
+
+/* ── S4 POLAROIDS (SNAPPY) ── */
+function initPolaroids(){
+  setTimeout(()=>{
+    document.getElementById('pol-l').classList.add('on');
+    document.getElementById('pol-r').classList.add('on');
+  },150);
+  setTimeout(()=>document.getElementById('pol-heart-box').classList.add('on'),450);
+  setTimeout(()=>document.getElementById('pol-caption').classList.add('on'),700);
+  setTimeout(()=>document.getElementById('pol-sub').classList.add('on'),900);
+  setTimeout(()=>document.getElementById('s4-btn').classList.add('show'),1100);
+}
+
+/* ── S5 LETTER (PERFECT 3S TIMING TO AYED'S VOCAL) ── */
+function initLetter(){
+  const s5=document.getElementById('s5');
+  for(let i=0;i<18;i++){
+    const m=document.createElement('div');m.className='mote';
+    const sz=2+Math.random()*4;
+    m.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;bottom:0;animation-delay:${Math.random()*6}s;animation-duration:${6+Math.random()*5}s`;
+    s5.appendChild(m);
+  }
+  const paragraphs={
+    'l-p1':'Hay cosas para las que el idioma se queda corto. Como intentar explicar lo que siento cuando estoy contigo.',
+    'l-p2':'No sé exactamente cuándo empezó. No hubo un momento concreto en el que pudiera decir “fue aquí”. Simplemente fue pasando, poco a poco, casi sin darme cuenta. Como la luz entrando por una ventana al amanecer: al principio apenas la notas, y cuando quieres darte cuenta, ya lo ha llenado todo.',
+    'l-p3':'Me gustan tus silencios, porque aprendí a entenderlos. Me gusta tu risa cuando sale sin pensarlo. Me gusta esa parte de ti que quizá ni siquiera sabes que los demás vemos. Y me gusta que seas tú, sin tener que cambiar nada para gustarme más.',
+    'l-p4':'A veces pienso en lo curioso que es que, entre tantas personas, tantos lugares y tantos caminos, nos hayamos encontrado nosotros. Como si la vida hubiera decidido cruzarnos justo cuando tenía que hacerlo.',
+    'l-p5':'No sé qué nos espera. Y tampoco quiero adelantarme a la historia. Solo sé que me gusta tenerte en mi vida, me gusta lo que estamos construyendo y me gusta pensar en todo lo que todavía nos queda por descubrir.',
+    'l-p6':'Porque quizá no se trata de encontrar a alguien perfecto. Quizá se trata de encontrar a alguien con quien quieras seguir creciendo. Y yo, si pudiera elegir a alguien para caminar un poco más lejos, te elegiría a ti.',
+    'l-p7':'Tú eres mi lugar favorito.',
+    'l-sign':'— con todo, siempre ❖'
+  };
+  
+  let delay = 3100;
+  Object.entries(paragraphs).forEach(([id,text])=>{
+    const el=document.getElementById(id);if(!el)return;
+    text.split(' ').forEach((w,i,arr)=>{
+      const span=document.createElement('span');span.className='word';
+      span.textContent=w+(i<arr.length-1?' ':'');
+      el.appendChild(span);
+      setTimeout(()=>span.classList.add('vis'),delay);
+      delay+=52;
+    });
+    delay+=280;
+  });
+}
+</script>
+</body>
+</html>
